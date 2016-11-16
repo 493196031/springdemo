@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+<!-- <context:property-placeholder file-encoding="utf-8" location="classpath:"/> -->
+	<!-- setter -->
+	<bean id="demo" class="net.yl.bean.Demo">
+		<property name="name" value="123" />
+	</bean>
+	
+	<!-- factory-method -->
+	<bean id="deomBean" class="net.yl.bean.DemoBeanFactory"  factory-method="createDemo">
+		<constructor-arg name="name" value="yl" />
+	</bean>
+	
+	<!-- <bean id="logAspect" class="net.yl.aop.LogAspect" />
+	<aop:config>
+		<aop:pointcut expression="execution(* net.yl.bean..*.*(..))" id="mpt"/>
+		<aop:aspect ref="logAspect">
+			<aop:before method="logBefore" pointcut-ref="mpt"/>
+			<aop:after method="logAfter" pointcut-ref="mpt"/>
+		</aop:aspect>
+	</aop:config> -->
+	
+</beans>
